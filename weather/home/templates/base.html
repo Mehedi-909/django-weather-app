@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <style>
+        
+        * {
+            box-sizing: inherit;
+        }
+
+        body {
+            /* background-image: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% ); */
+            background-image: linear-gradient(to right, #c6f6ff, #fbd786, #fcab6a);
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        .btn {
+            background: rgba(34, 85, 224, 0.795);
+            color: #fff;
+        }
+
+        body {
+            font-family: Helvetica;
+        }
+
+        .content_wrapper {
+            padding: 3% 0;
+            margin: 0 auto;
+            width: 400px;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .weather_card {
+            display: flex;
+            border-radius: 10px;
+            width: 100%;
+            height: 120px;
+            padding: 15px;
+            box-shadow: -5px 5px 15px 5px rgba(150, 150, 150, 0.2);
+        }
+
+        .weather_card_img {
+            width: calc(120px - 15px);
+            display: flex;
+            background-size: cover;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .weather_card_state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.1);
+            color: #fff;
+            font-size: 50px;
+        }
+
+        .weather_card_state .material-icons {
+            font-size: 50px;
+        }
+
+        .weather_card_infos {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            padding-left: 15px;
+        }
+
+        .weather_card_infos_title {
+            font-size: 15px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .weather_card_infos_temp {
+            font-size: 22px;
+            font-weight: 300;
+            color: rgb(170,170,170);
+        }
+
+        .date {
+            margin-top: 5px;
+            font-weight: 300;
+            display: flex;
+            align-items: flex-end;
+            flex-grow: 1;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        hr {
+            width: 100%;
+            height: 1px;
+            background: rgba(100,100,100,.2);
+            border: none;
+        }
+
+        .bottom {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            flex-direction: column;
+        }
+
+        .weather_card_infos_bottom {
+            font-size: 12px;
+            font-weight: 300;
+        }
+/* 
+        .day {
+            background-image: linear-gradient(to right, #4db46c, #f1ca49, #e4370c);
+        }
+        .night {
+            background-image: linear-gradient(to right, #484655, #51497a, #5f85ec);
+        
+        } */
+/* 
+        body {
+			background-image: linear-gradient(to right, #4db46c, #f1ca49, #e4370c);
+		}
+
+		body.night {
+			background-image: linear-gradient(to right, #484655, #51497a, #5f85ec);
+		} */
+
+    </style>
+<!-- 
+    <script>
+        var d = new Date();
+		var hour = d.getHours();
+
+		if (hour >= 9 || hour < 7) {
+			document.body.classList.add('night');
+		}
+    </script> -->
+</head>
+<body>
+<!-- 
+    {% block content %}
+    {% endblock %} -->
+    <div class="content_wrapper" id="app">
+        <div v-if="infos.city">
+            <h1>
+                Weather
+                <div class="date">
+                    <h2> {{data.city}} </h2> 
+                </div>
+            </h1>
+
+        
+    
+            <div class="weather_card">
+                <div class="weather_card_img" :style="{backgroundImage: http://openweathermap.org/img/wn/{{data.icon}}.png}">
+                    <div class="weather_card_state">
+                        <span class="material-icons">
+                            <img src="http://openweathermap.org/img/wn/{{data.icon}}.png" alt="">
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="weather_card_infos">
+                    <div class="weather_card_infos_title">
+                        {{data.weather}}
+                        
+                    </div>
+                    <div class="weather_card_infos_temp">
+                        {{data.celcius_temperature}}°C / {{data.kelvin_temperature}} K
+                    </div>
+                    <div class="bottom">
+                        <hr>
+                        <div class="weather_card_infos_bottom">
+                            Pressure: {{data.pressure}},  Humidity: {{data.humidity}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br> <br>
+            <form method="get">
+                <input class="form-control" name="city"> <br> <br> 
+                <button class="btn" type="submit"> Submit </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
